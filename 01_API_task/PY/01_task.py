@@ -1,5 +1,5 @@
 from pprint import pprint
-from ai_devs2_config import get_token_from_api, get_task_from_api, send_answer_to_api
+from ai_devs2_utils import get_token_from_api, get_task_from_api, send_answer_to_api
 
 
 # Get TOKEN
