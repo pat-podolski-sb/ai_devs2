@@ -37,3 +37,35 @@ def send_answer_to_api(token, answer):
 
   postAnswerEndpointResponse.raise_for_status()
   return postAnswerEndpointResponse.json()
+
+def call_openai_api():
+  api_url = 'https://api.openai.com/v1/engines/davinci-codex/completions'
+  bearerAuth = 'Bearer ' + os.getenv('OPENAI_API_KEY')
+  body = {
+     "messages": [{ "role": "user", "content": "Hello!" }],
+     "model": "gpt-3.5-turbo",
+      "max_tokens": 100,
+      # "temperature": 0.7,
+      # "top_p": 1,
+      # "frequency_penalty": 0,
+      # "presence_penalty": 0,
+      # "stop": "\n",
+      # "logprobs": 0,
+      # "echo": "true",
+      # "user": "user",
+      # "content": "Hello!",
+      # "role": "user",
+      # "type": "message",
+      # "id": "user_0",
+      # "timestamp": 1643092800,
+      # "is_typing": "false",
+      # "is_action": "false",
+  }
+  setHeaders = {'Content-Type': 'application/json', 'Authorization': bearerAuth}
+  
+  getResponseFromOpenai = requests.post(
+    api_url, json=body, headers=setHeaders, auth=bearerAuth
+  )
+  
+  get_token_from_api.raise_for_status()
+  return get_token_from_api.json()
