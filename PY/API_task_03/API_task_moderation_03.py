@@ -14,7 +14,7 @@ def api_test_task_03(taskName):
   pprint('TASK FROM get_task_from_api METHOD:')
   pprint(taskObject)
 
-  # # Send ANSWER
-  # answerObject = send_answer_to_api(tokenObject.get('token'), taskObject.get('cookie'))
-  # pprint('ANSWER FROM send_answer_to_api METHOD:')
-  # pprint(answerObject)
+  # Send ANSWER
+  answerObject = send_answer_to_api(tokenObject.get('token'), [1,1,1,0])
+  pprint('ANSWER FROM send_answer_to_api METHOD:')
+  pprint(answerObject)

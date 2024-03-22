@@ -1,5 +1,6 @@
 import requests
 import os
+# from openai import OpenAI
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
@@ -32,20 +33,25 @@ def send_answer_to_api(token, answer):
   body = {'answer': answer}
 
   postAnswerEndpointResponse = requests.post(
-    api_url, json=body, headers={'Content-Type': 'application/json'}
+    api_url, json=body, 
+    headers={'Content-Type': 'application/json'}
   )
 
-  postAnswerEndpointResponse.raise_for_status()
+  # postAnswerEndpointResponse.raise_for_status()
   return postAnswerEndpointResponse.json()
 
-def call_openai_api():
-  api_url = 'https://api.openai.com/v1/engines/davinci-codex/completions'
+def call_openai_api(systemContent = '', userContent = ''):
+  api_url = 'https://api.openai.com/v1/chat/completions'
   bearerAuth = 'Bearer ' + os.getenv('OPENAI_API_KEY')
+
   body = {
-     "messages": [{ "role": "user", "content": "Hello!" }],
+     "messages": [
+       { "role": "system", "content": systemContent },
+       { "role": "user", "content": userContent}
+      ],
      "model": "gpt-3.5-turbo",
-      "max_tokens": 100,
-      # "temperature": 0.7,
+      "max_tokens": 2200,
+      "temperature": 1,
       # "top_p": 1,
       # "frequency_penalty": 0,
       # "presence_penalty": 0,
@@ -62,10 +68,28 @@ def call_openai_api():
       # "is_action": "false",
   }
   setHeaders = {'Content-Type': 'application/json', 'Authorization': bearerAuth}
-  
+  print('setHeaders:', setHeaders)
   getResponseFromOpenai = requests.post(
-    api_url, json=body, headers=setHeaders, auth=bearerAuth
+    api_url, json=body, headers=setHeaders #, auth=bearerAuth
   )
   
-  get_token_from_api.raise_for_status()
-  return get_token_from_api.json()
+  # client = OpenAI(
+  #   # This is the default and can be omitted
+  #   api_key=os.getenv('OPENAI_API_KEY')
+  # )
+
+  # chat_completion = client.chat.completions.create(
+  #   messages=[
+  #     { "role": "system", "content": aaa },
+  #     { "role": "user", "content": userContent}
+  #   ],
+  #   model="gpt-3.5-turbo",
+  #   max_tokens=2200,
+  #   temperature=1
+  # )
+  
+  # chat_completion.raise_for_status()
+  # print(chat_completion.choices[0].message.content[1])
+  
+  
+  return getResponseFromOpenai.json()
