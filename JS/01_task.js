@@ -1,7 +1,8 @@
 // Node.js v20 has build in fetch without need to import 
+// node --env-file=../.env 01_task.js <<-- in order to use env variables
 // helloapi 
-const taskNameUrl = 'https://tasks.aidevs.pl/token/blogger';
-const apikey = '';
+const taskNameUrl = 'https://tasks.aidevs.pl/token/helloapi';
+const apikey = process.env.AI_DEVS_2_API_KEY || '';
 
 async function getTaskToken() {
   const response = await fetch(taskNameUrl, {
