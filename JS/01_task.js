@@ -1,7 +1,7 @@
 // Node.js v20 has build in fetch without need to import 
 // helloapi 
 const taskNameUrl = 'https://tasks.aidevs.pl/token/blogger';
-const apikey = 'c932421f-be4b-4440-9180-166c2f7d32b8';
+const apikey = '';
 
 async function getTaskToken() {
   const response = await fetch(taskNameUrl, {
