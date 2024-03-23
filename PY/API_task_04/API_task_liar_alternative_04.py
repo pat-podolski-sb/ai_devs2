@@ -2,7 +2,7 @@ from pprint import pprint
 import requests
 import re
 from openai import OpenAI
-from ai_devs2_utils import get_token_from_api, get_task_from_api, send_answer_to_api
+from utils import get_token_from_api, get_task_from_api, send_answer_to_api
 
 def api_test_task_alternative_04(taskName):
   # Get TOKEN
