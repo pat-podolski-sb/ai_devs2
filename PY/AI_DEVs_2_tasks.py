@@ -4,11 +4,12 @@ from API_task_03.API_task_moderation_03 import api_test_task_03
 from API_task_04.API_task_liar_04 import api_test_task_04
 from API_task_04.API_task_liar_alternative_04 import api_test_task_alternative_04
 
-
+from utils import calculateTokensInOpenaiInput
 
 # 01 API task 
 # api_test_task_01('helloapi')
 # api_test_task_02('blogger')
 # api_test_task_03('moderation')
 # api_test_task_04('liar')
-api_test_task_alternative_04('liar')
+# api_test_task_alternative_04('liar')
+calculateTokensInOpenaiInput('Hey, you!')

@@ -1,5 +1,6 @@
 import requests
 import os
+import tiktoken
 # from openai import OpenAI
 from dotenv import load_dotenv, find_dotenv
 
@@ -93,3 +94,14 @@ def call_openai_api(systemContent = '', userContent = ''):
   
   
   return getResponseFromOpenai.json()
+
+def calculateTokensInOpenaiInput(phrase):
+  enc = tiktoken.get_encoding("cl100k_base")
+  print('enc.encode:', enc.encode(phrase))
+  assert enc.decode(enc.encode(phrase)) == phrase
+  
+  print('enc.decode:', enc.decode(enc.encode(phrase)))
+  print
+
+  # To get the tokeniser corresponding to a specific model in the OpenAI API:
+  # enc = tiktoken.encoding_for_model("gpt-4")
