@@ -12,4 +12,4 @@ from utils import calculateTokensInOpenaiInput
 # api_test_task_03('moderation')
 # api_test_task_04('liar')
 # api_test_task_alternative_04('liar')
-calculateTokensInOpenaiInput('Hey, you!')
+calculateTokensInOpenaiInput('What is the capital of Argentina?')

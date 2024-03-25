@@ -101,7 +101,7 @@ def calculateTokensInOpenaiInput(phrase):
   assert enc.decode(enc.encode(phrase)) == phrase
   
   print('enc.decode:', enc.decode(enc.encode(phrase)))
-  print
+  print('number of tokens:', len(enc.encode(phrase)))
 
   # To get the tokeniser corresponding to a specific model in the OpenAI API:
   # enc = tiktoken.encoding_for_model("gpt-4")
