@@ -4,6 +4,7 @@ from API_task_03.API_task_moderation_03 import api_test_task_03
 from API_task_04.API_task_liar_04 import api_test_task_04
 from API_task_04.API_task_liar_alternative_04 import api_test_task_alternative_04
 from API_task_05.API_task_inprompt_05 import api_test_inprompt_05
+from API_task_06.API_task_embedding_06 import api_test_embedding_06
 
 from utils import calculateTokensInOpenaiInput
 
@@ -14,4 +15,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_task_04('liar')
 # api_test_task_alternative_04('liar')
 # calculateTokensInOpenaiInput('What is the capital of Argentina?')
-api_test_inprompt_05('inprompt')
+# api_test_inprompt_05('inprompt')
+api_test_embedding_06('embedding')
