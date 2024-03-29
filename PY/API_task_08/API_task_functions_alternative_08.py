@@ -1,0 +1,55 @@
+from pprint import pprint
+import json
+import os
+import requests
+import re
+from openai import OpenAI
+from utils import get_token_from_api, get_task_from_api, send_answer_to_api
+
+def api_test_functions_alternative_08(taskName):
+  # Get TOKEN
+  tokenObject = get_token_from_api(taskName)
+  pprint('TOKEN FROM get_token_from_api METHOD:')
+  pprint(tokenObject.get('token'))
+
+  # Get TASK
+  taskObject = get_task_from_api(tokenObject.get('token'))
+  pprint('Object FROM get_task_from_api METHOD:')
+  print(taskObject)
+
+  client = OpenAI(
+    api_key=os.getenv('OPENAI_API_KEY')
+  ) 
+  
+  sampleFunctionDefinitionStructure = {
+    "name": "Function name",
+    "description": "Description of a function",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "type of property string/integer/boolean",
+          "description": "Description of property"
+        }
+      }
+    }
+  }
+  
+  openResponseWithJSONFnDefinition = client.chat.completions.create(
+    messages=[
+      {"role": "system", "content": "You need to generate a function definition in JSON format. e.g. " + json.dumps(sampleFunctionDefinitionStructure)},
+      {"role": "user", "content": taskObject.get('msg')},
+    ],
+    model="gpt-3.5-turbo",
+    max_tokens=2200,
+    temperature=1
+  )
+  pprint('Function definition FROM call_openai_api METHOD:')
+  functionDefinition = json.loads(openResponseWithJSONFnDefinition.choices[0].message.content)
+  pprint(functionDefinition)
+
+  # Submit result to the API
+  
+  answerObject = send_answer_to_api(tokenObject.get('token'), functionDefinition)
+  pprint('ANSWER FROM send_answer_to_api METHOD:')
+  pprint(answerObject)

@@ -12,7 +12,6 @@ def api_test_inprompt_05(taskName):
   pprint('TOKEN FROM get_token_from_api METHOD:')
   pprint(tokenObject.get('token'))
 
-
   # Get TASK
   taskObject = get_task_from_api(tokenObject.get('token'))
   pprint('input FROM get_task_from_api METHOD:')
