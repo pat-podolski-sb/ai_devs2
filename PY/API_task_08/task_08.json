@@ -1,0 +1,20 @@
+{
+  "code": 0,
+  "msg": "send me definition of function named addUser that require 3 params: name (string), surname (string) and year of born in field named 'year' (integer). Set type of function to 'object'",
+  "hint1": "send this definition as correct JSON structure inside 'answer' field (as usual)",
+  "hint2": {
+    "answer": {
+      "name": "orderPizza",
+      "description": "select pizza in pizzeria based on pizza name",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "provide name of the pizza"
+          }
+        }
+      }
+    }
+  }
+}
