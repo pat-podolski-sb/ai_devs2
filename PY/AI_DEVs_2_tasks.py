@@ -10,6 +10,7 @@ from API_task_08.API_task_functions_08 import api_test_functions_08
 from API_task_08.API_task_functions_alternative_08 import api_test_functions_alternative_08
 from API_task_09.API_task_rodo_09 import api_test_rodo_09
 from API_task_09.API_task_rodo_alternative_09 import api_test_rodo_alternative_09
+from API_task_10.API_task_scraper_10 import api_test_scraper_10
 
 from utils import calculateTokensInOpenaiInput
 
@@ -26,4 +27,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_functions_08('functions')
 # api_test_functions_alternative_08('functions')
 # api_test_rodo_09('rodo')
-api_test_rodo_alternative_09('rodo')
+# api_test_rodo_alternative_09('rodo')
+api_test_scraper_10('scraper')
