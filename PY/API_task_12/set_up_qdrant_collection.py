@@ -3,6 +3,7 @@ from langchain_openai import OpenAIEmbeddings
 import requests
 from pprint import pprint
 import os
+import uuid
 from dotenv import load_dotenv, find_dotenv
 
 COLLECTION_NAME = 'ai_devs'
@@ -46,7 +47,14 @@ listOfItems = requests.get('https://unknow.news/archiwum_aidevs.json').json()
 
 pprint(len(listOfItems))
 
-    # Get list of collections
+for item in listOfItems:
+    item['metadata']['source'] = COLLECTION_NAME
+    item['metadata']['content'] = item['pageContent']
+    item['metadata']['uuid'] = uuid.uuid4()
+    
+pprint(listOfItems[0])
+
+     # Get list of collections
     # listOfQdrantCollections = qdrantClient.get_collections()
 
     # pprint(listOfQdrantCollections)
@@ -69,4 +77,4 @@ pprint(len(listOfItems))
        
 
 # Delete collection:
-qdrantClient.delete_collection(collection_name="{COLLECTION_NAME}")
+# qdrantClient.delete_collection(collection_name="{COLLECTION_NAME}")
