@@ -8,6 +8,7 @@ requests = "*"
 python-dotenv = "*"
 openai = "*"
 tiktoken = "*"
+qdrant-client = "*"
 
 [dev-packages]
 

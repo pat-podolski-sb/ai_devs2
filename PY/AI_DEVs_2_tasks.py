@@ -13,6 +13,7 @@ from API_task_09.API_task_rodo_alternative_09 import api_test_rodo_alternative_0
 from API_task_10.API_task_scraper_10 import api_test_scraper_10
 from API_task_11.API_task_whoami_11 import api_test_whoami_11
 from API_task_12.API_task_search_12 import api_test_search_12
+from API_task_13.API_task_people_13 import api_test_people_13
 
 from utils import calculateTokensInOpenaiInput
 
@@ -32,4 +33,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_rodo_alternative_09('rodo')
 # api_test_scraper_10('scraper')
 # api_test_whoami_11('whoami') # TODO: Implement the logic of the task
-api_test_search_12('search') # TODO: Implement the logic of the task
+# api_test_search_12('search') # TODO: Implement the logic of the task
+api_test_people_13('people') # TODO: Implement the logic of the task
