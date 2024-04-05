@@ -69,4 +69,4 @@ pprint(len(listOfItems))
        
 
 # Delete collection:
-# qdrantClient.delete_collection(collection_name=COLLECTION_NAME)
+qdrantClient.delete_collection(collection_name="{COLLECTION_NAME}")
