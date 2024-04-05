@@ -39,6 +39,6 @@ def api_test_search_12(taskName):
 
   # # Submit result to the API
   
-  # answerObject = send_answer_to_api(tokenObject.get('token'), answerToQuestionBasedOnArticle)
+  # answerObject = send_answer_to_api(tokenObject.get('token'), "https://www.internet-czas-dzialac.pl/pseudonimizacja-a-anonimizacja/")
   # pprint('ANSWER FROM send_answer_to_api METHOD:')
   # pprint(answerObject)
