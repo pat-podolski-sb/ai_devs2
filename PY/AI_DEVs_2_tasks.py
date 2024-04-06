@@ -33,5 +33,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_rodo_alternative_09('rodo')
 # api_test_scraper_10('scraper')
 # api_test_whoami_11('whoami') # TODO: Implement the logic of the task
-api_test_search_12('search') # TODO: Implement the logic of the task
-# api_test_people_13('people') # TODO: Implement the logic of the task
+# api_test_search_12('search')
+api_test_people_13('people') # TODO: Implement the logic of the task
