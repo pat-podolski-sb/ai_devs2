@@ -1,7 +1,9 @@
 from qdrant_client import QdrantClient, models
+from qdrant_client.models import PointStruct
 from langchain_openai import OpenAIEmbeddings
 import requests
 from pprint import pprint
+import json
 import os
 import uuid
 from dotenv import load_dotenv, find_dotenv
@@ -13,14 +15,9 @@ qdrantClient = QdrantClient(url=os.getenv('QDRANT_URL'))
 # https://github.com/qdrant/qdrant-client
 # https://github.com/i-am-alice/2nd-devs/blob/main/27_qdrant/27.ts
 
-embeddings = OpenAIEmbeddings(model="text-embedding-3-large",dimensions=1024)
-text = "This is a test document."
-query_result = embeddings.embed_query(text)
+embeddings = OpenAIEmbeddings(model="text-embedding-3-large",dimensions=1536)
 
-# pprint(query_result)
-pprint('works')
-
-
+qdrantClient.delete_collection(collection_name="ai_devs")
 # Get list of collections
 listOfQdrantCollections = qdrantClient.get_collections()
 
@@ -48,33 +45,33 @@ listOfItems = requests.get('https://unknow.news/archiwum_aidevs.json').json()
 pprint(len(listOfItems))
 
 for item in listOfItems:
-    item['metadata']['source'] = COLLECTION_NAME
-    item['metadata']['content'] = item['pageContent']
-    item['metadata']['uuid'] = uuid.uuid4()
+    item['metadata'] = {
+      'source': COLLECTION_NAME,
+      'content': item['title'],
+      'uuid': uuid.uuid4(),
+      'url': item['url']
+    }
     
 pprint(listOfItems[0])
 
-     # Get list of collections
-    # listOfQdrantCollections = qdrantClient.get_collections()
+points = []
+for item in listOfItems:
+  embedding = embeddings.embed_query(item['title'])
+  points.append({
+    'id': str(item['metadata']['uuid']),
+    'vector': embedding,
+    'metadata': item['metadata']
+  })
 
-    # pprint(listOfQdrantCollections)
+pprint(points[0]['metadata'])
 
-    # collections_list = []
-    # for collection in listOfQdrantCollections:
-    #     print(collection)
-    #     for collectionObject in list(collection[1]):
-    #         collections_list.append(collectionObject.name)
-    #         print(collectionObject.name)
-
-    # pprint(collections_list)
-    # pprint(collections_list.count(COLLECTION_NAME))
-
-    # if collections_list.count(COLLECTION_NAME) == 1:
-    #     pprint('Collection created successfully')
-    # else:
-    #     pprint('Collection not created')
-       
-       
+qdrantClient.upsert(
+  collection_name=COLLECTION_NAME, 
+  points=[PointStruct(
+    id=point['id'], 
+    vector=point['vector'], 
+    payload=point['metadata']
+  ) for id, point in enumerate(points)])
 
 # Delete collection:
 # qdrantClient.delete_collection(collection_name="{COLLECTION_NAME}")
