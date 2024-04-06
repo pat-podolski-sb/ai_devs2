@@ -33,27 +33,28 @@ def api_test_people_13(taskName):
     limit=1
   )
 
+  pprint('Closest hits:')
+  pprint(closestHit[0].payload.get('person'))
+  personsDetails = closestHit[0].payload.get('person')
 
-
-  # TODO: Implement the logic of the task
-
-  # client = OpenAI(
-  #   api_key=os.getenv('OPENAI_API_KEY')
-  # ) 
+  client = OpenAI(
+    api_key=os.getenv('OPENAI_API_KEY')
+  ) 
   
-  # openResponseWithJSONFnDefinition = client.chat.completions.create(
-  #   messages=[
-  #     {"role": "system", "content":"Nie zwracaj odpowiedzi na pytanie tylko zwróć Imię i Nazwisko osoby z pytania. Zwracaj pełne Imię bez zdrobnień. Na przykład Krysia = Krystyna czy Tomek = Tomasz. Nie zwracaj zadnych znaków interpunkcyjnych."},
-  #     # {"role": "system", "content":"To answer the question use data set in given link: " +  taskObject.get('data') + ". Please answer in Polish language only in one word. Favorite color take from 'ulubiony_kolor' properties, favourite food and place of residence take from 'o_mnie' property. Name ('imie') and lastname ('nazwisko') need to be exact match from question and in data set."},
-  #     {"role": "user", "content": taskObject.get('question')},
-  #   ],
-  #   model="gpt-3.5-turbo",
-  #   max_tokens=2200,
-  #   temperature=1
-  # )
+  openResponseWithJSONFnDefinition = client.chat.completions.create(
+    messages=[
+      {"role": "user", "content": 'Na podstawie obiektu JSON: ' + json.dumps(personsDetails) +' odpowiedz na następu∆ące pytanie: ' + taskObject.get('question')},
+    ],
+    model="gpt-3.5-turbo",
+    max_tokens=2200,
+    temperature=1
+  )
+  
+  pprint('Function definition FROM call_openai_api METHOD:')
+  answerToQuestionBasedOnJSONObject = openResponseWithJSONFnDefinition.choices[0].message.content
+  print(answerToQuestionBasedOnJSONObject)
  
   # Submit result to the API
-  
-  # answerObject = send_answer_to_api(tokenObject.get('token'), answerToQuestionBasedOnArticle)
-  # pprint('ANSWER FROM send_answer_to_api METHOD:')
-  # pprint(answerObject)
+  answerObject = send_answer_to_api(tokenObject.get('token'), answerToQuestionBasedOnJSONObject)
+  pprint('ANSWER FROM send_answer_to_api METHOD:')
+  pprint(answerObject)

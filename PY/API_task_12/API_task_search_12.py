@@ -5,7 +5,7 @@ import requests
 import re
 from openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
-from qdrant_client import QdrantClient, models
+from qdrant_client import QdrantClient
 from utils import get_token_from_api, get_task_from_api, send_answer_to_api
 
 
