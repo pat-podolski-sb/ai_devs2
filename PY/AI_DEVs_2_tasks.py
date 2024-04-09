@@ -15,6 +15,7 @@ from API_task_11.API_task_whoami_11 import api_test_whoami_11
 from API_task_12.API_task_search_12 import api_test_search_12
 from API_task_13.API_task_people_13 import api_test_people_13
 from API_task_14.API_task_knowledge_14 import api_test_knowledge_14
+from API_task_15.API_task_tools_15 import api_test_tools_15
 
 from utils import calculateTokensInOpenaiInput
 
@@ -36,4 +37,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_whoami_11('whoami')
 # api_test_search_12('search')
 # api_test_people_13('people')
-api_test_knowledge_14('knowledge')
+# api_test_knowledge_14('knowledge')
+api_test_tools_15('tools') # TODO: Implement the logic of the task
