@@ -18,8 +18,6 @@ def api_test_tools_15(taskName):
   pprint('Object FROM get_task_from_api METHOD:')
   print(taskObject)
 
-  question = taskObject.get('question')
-  questionCategory = '' # population / currency / general
     
   # TODO: Implement the logic of the task
 
@@ -40,8 +38,8 @@ def api_test_tools_15(taskName):
   # questionCategory = openaiResponseWithQuestionCategory.choices[0].message.content
   # print(questionCategory)
     
-  # # Submit result to the API
-  # tokenObject = get_token_from_api(taskName)
-  # answerObject = send_answer_to_api(tokenObject.get('token'), responseForQuestion)
-  # pprint('ANSWER FROM send_answer_to_api METHOD:')
-  # pprint(answerObject)
+  # Submit result to the API
+  tokenObject = get_token_from_api(taskName)
+  answerObject = send_answer_to_api(tokenObject.get('token'), 'responseForQuestion')
+  pprint('ANSWER FROM send_answer_to_api METHOD:')
+  pprint(answerObject)
