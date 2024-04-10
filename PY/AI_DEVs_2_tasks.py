@@ -39,5 +39,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_search_12('search')
 # api_test_people_13('people')
 # api_test_knowledge_14('knowledge')
-# api_test_tools_15('tools') # TODO: Implement the logic of the task
-api_test_gnome_16('gnome')
+api_test_tools_15('tools') # TODO: Implement the logic of the task
+# api_test_gnome_16('gnome')
