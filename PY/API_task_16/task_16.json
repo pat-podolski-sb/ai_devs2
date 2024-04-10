@@ -1,0 +1,6 @@
+{
+    "code": 0,
+    "msg": "I will give you a drawing of a gnome with a hat on his head. Tell me what is the color of the hat in POLISH. If any errors occur, return 'ERROR' as answer",
+    "hint": "it won't always be a drawing of a gnome >:)",
+    "url": "https://tasks.aidevs.pl/gnome/17149b30fa79f6261d2c979aa9ca0413.png"
+}
