@@ -18,6 +18,7 @@ from API_task_14.API_task_knowledge_14 import api_test_knowledge_14
 from API_task_15.API_task_tools_15 import api_test_tools_15
 from API_task_16.API_task_gnome_16 import api_test_gnome_16
 from API_task_17.API_task_ownapi_17 import api_test_ownapi_17
+from API_task_18.API_task_ownapipro_18 import api_test_ownapipro_18
 
 from utils import calculateTokensInOpenaiInput
 
@@ -42,4 +43,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_knowledge_14('knowledge')
 # api_test_tools_15('tools')
 # api_test_gnome_16('gnome')
-api_test_ownapi_17('ownapi')
+# api_test_ownapi_17('ownapi')
+api_test_ownapipro_18('ownapipro')
