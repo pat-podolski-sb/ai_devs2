@@ -16,6 +16,6 @@ jobs:
           aws-region: us-east-2
       - run: |
           ls -al
-          cd project_api
+          cd projectApi
           sam build --use-container
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
