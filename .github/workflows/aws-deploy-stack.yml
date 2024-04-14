@@ -1,7 +1,21 @@
+name: Deploy Environments
+run-name: " API_ENV: ${{ inputs.branch }} | Deploy Environments "
+
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Api Gateway Stage'
+        type: choice
+        default: dev1
+        required: true
+        options:
+          - dev1
+          - dev2
+          - dev3
+  # push:
+  #   branches:
+  #     - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
