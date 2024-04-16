@@ -6,8 +6,8 @@ import re
 from openai import OpenAI
 from utils import get_token_from_api, get_task_from_api, send_answer_to_api
 
-# C05L02
-def api_test_meme_19(taskName):
+# C04L05
+def api_test_optimaldb_20(taskName):
   # Get TOKEN
   tokenObject = get_token_from_api(taskName)
   pprint('TOKEN FROM get_token_from_api METHOD:')
@@ -42,9 +42,9 @@ def api_test_meme_19(taskName):
   # pprint('Question category FROM call_openai_api METHOD:')
   # questionCategory = openaiResponseWithQuestionCategory.choices[0].message.content
   # print(questionCategory)
-    
-  # # Submit result to the API
-  # tokenObject = get_token_from_api(taskName)
-  # answerObject = send_answer_to_api(tokenObject.get('token'), 'https://i.ibb.co/hHWCNPM/download.jpg')
+
+
+    # # Submit result to the API
+  # answerObject = send_answer_to_api(tokenObject.get('token'), json.dumps(dbResults))
   # pprint('ANSWER FROM send_answer_to_api METHOD:')
   # pprint(answerObject)
