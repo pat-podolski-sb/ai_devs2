@@ -6,8 +6,8 @@ import re
 from openai import OpenAI
 from utils import get_token_from_api, get_task_from_api, send_answer_to_api
 
-# C05L02
-def api_test_optimaldb_20(taskName):
+# C05L03
+def api_test_google_21(taskName):
   # Get TOKEN
   tokenObject = get_token_from_api(taskName)
   pprint('TOKEN FROM get_token_from_api METHOD:')
