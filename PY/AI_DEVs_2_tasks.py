@@ -22,6 +22,7 @@ from API_task_18.API_task_ownapipro_18 import api_test_ownapipro_18
 from API_task_19.API_task_meme_19 import api_test_meme_19
 from API_task_20.API_task_optimaldb_20 import api_test_optimaldb_20
 from API_task_21.API_task_google_21 import api_test_google_21
+from API_task_22.API_task_md2html_22 import api_test_md2html_22
 
 from utils import calculateTokensInOpenaiInput
 
@@ -50,4 +51,5 @@ from utils import calculateTokensInOpenaiInput
 # api_test_ownapipro_18('ownapipro') # TODO: Uncomment this line
 # api_test_meme_19('meme') # TODO: Uncomment this line
 # api_test_optimaldb_20('optimaldb') # TODO: Uncomment this line
-api_test_google_21('google') # TODO: Uncomment this line
+# api_test_google_21('google') # TODO: Uncomment this line
+api_test_md2html_22('md2html') # TODO: Uncomment this line
