@@ -52,6 +52,6 @@ from utils import calculateTokensInOpenaiInput
 # api_test_ownapipro_18('ownapipro') # TODO: Uncomment this line
 # api_test_meme_19('meme') # TODO: Uncomment this line
 # api_test_optimaldb_20('optimaldb') # TODO: Uncomment this line
-# api_test_google_21('google') # TODO: Uncomment this line
+api_test_google_21('google') # TODO: Uncomment this line
 # api_test_md2html_22('md2html')
-api_test_md2html_fine_tunning_22('md2html')
+# api_test_md2html_fine_tunning_22('md2html')
