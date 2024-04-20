@@ -44,7 +44,7 @@ def api_test_ownapipro_18(taskName):
   # print(questionCategory)
     
   # # Submit result to the API
-  # tokenObject = get_token_from_api(taskName)
-  # answerObject = send_answer_to_api(tokenObject.get('token'), questionCategory)
-  # pprint('ANSWER FROM send_answer_to_api METHOD:')
-  # pprint(answerObject)
+  tokenObject = get_token_from_api(taskName)
+  answerObject = send_answer_to_api(tokenObject.get('token'), 'https://c4d8-77-222-243-185.ngrok-free.app/ownapipro')
+  pprint('ANSWER FROM send_answer_to_api METHOD:')
+  pprint(answerObject)
