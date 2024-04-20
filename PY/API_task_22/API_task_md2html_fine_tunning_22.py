@@ -31,19 +31,25 @@ def api_test_md2html_fine_tunning_22(taskName):
   
   # Create a fine tunning job with the uploaded training file and the model
   # model = client.fine_tuning.jobs.create(
-  #   training_file=fineTunningTrainingFile.id, 
+  #   training_file='', # file.id
   #   model="gpt-3.5-turbo-0125"
   # )
   
   # pprint('FINE TUNNING MODEL:')
   # pprint(model)
   
+  delete_result = client.models.delete('ft:gpt-3.5-turbo-0125:personal::234234234')
+  
+  pprint('DELETE RESULT:')
+  pprint(delete_result)
+  
+  
   openaiResponseWithGeneratedHtml = client.chat.completions.create(
       messages=[
-        # {"role": "system", "content": taskObject.get('msg') + 'For bold use span tag with bold class name and for "_" means underscore tag. *kursywa* = <em>kursywa</em>. Examples: ' + taskObject.get('hint')},
+        {"role": "system", "content": taskObject.get('msg') + 'Examples: ' + taskObject.get('hint')},
         { "role": "user", "content": taskObject.get('input')},
       ],
-      model='ftjob-RGcfVBQMXJC11pkcrW0HZEB2', # fine tunning model that was created model.id from here or https://platform.openai.com/finetune/
+      model='', # from here or https://platform.openai.com/finetune/
       max_tokens=2200,
       temperature=1
     )
