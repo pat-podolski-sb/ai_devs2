@@ -11,6 +11,7 @@ tiktoken = "*"
 qdrant-client = "*"
 langchain-openai = "*"
 flask = "*"
+langchain = "*"
 
 [dev-packages]
 
