@@ -10,6 +10,7 @@ openai = "*"
 tiktoken = "*"
 qdrant-client = "*"
 langchain-openai = "*"
+flask = "*"
 
 [dev-packages]
 
